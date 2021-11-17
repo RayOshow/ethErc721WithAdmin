@@ -277,7 +277,7 @@ contract ERC721 is IERC721,IERC721Metadata,AdminRole {
                     revert("ERC721: transfer to non ERC721Receiver implementer");
                 } else {
                     assembly {
-                        revert(add(32, reason), sub(mload(reason),32))
+                        revert(add(32, reason), mload(reason))
                     }
                 }
             }

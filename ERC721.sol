@@ -53,8 +53,8 @@ contract ERC721 is IERC721,IERC721Metadata,AdminRole {
     function supportsInterface(bytes4 interfaceId) public view virtual override returns (bool) {
         return
             interfaceId == type(IERC721).interfaceId ||
-            interfaceId == type(IERC165).interfaceId;
-            // interfaceId == type(IERC721Metadata).interfaceId ||
+            interfaceId == type(IERC165).interfaceId ||
+            interfaceId == type(IERC721Metadata).interfaceId ;
             //super.supportsInterface(interfaceId);
     }
     

@@ -227,9 +227,7 @@ contract ERC721 is IERC721,IERC721Metadata,AdminRole {
      *  
      */ 
     function safeMint(address to, string memory url) public onlyMinter {
-        
-        currentTokenId++;
-        
+               
         require(to != address(0), "ERC721: mint to the zero address");
         require(!_exists(currentTokenId), "ERC721: token already minted");
         
@@ -241,9 +239,10 @@ contract ERC721 is IERC721,IERC721Metadata,AdminRole {
         _balances[to] += 1;
         _owners[currentTokenId] = to;
         
-        
         _tokenURIs[currentTokenId] = url;
-        
+
+        currentTokenId++;
+
         emit Transfer(address(0), to, currentTokenId);
     }
 
